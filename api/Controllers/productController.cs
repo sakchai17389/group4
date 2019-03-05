@@ -9,57 +9,45 @@ namespace myApi.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    public class ClassroomController : ControllerBase
+    public class productController : ControllerBase
     {
-        private static List<Student> students = new List<Student>
+        private static List<product> product = new List<product>
         {
-            new Student{
+            new product{
                 Id = Guid.NewGuid().ToString(),
-                Name = "นายแดง",
-                price = 5,
-                ProfileImage="https://photofleem.com/wp-content/uploads/2018/02/lightroom-reduce-sunlight.jpg"
+                Name = "นม",
+                price = 50,
+                ProfileImage="https://static.bigc.co.th/media/catalog/product/cache/8/image/500x/9df78eab33525d08d6e5fb8d27136e95/8/8/8850329150113_1.jpg"
             },
-             new Student{
+             new product{
                 Id = Guid.NewGuid().ToString(),
-                Name = "นายดำ",
-                price = 5,
-                ProfileImage="https://photofleem.com/wp-content/uploads/2018/01/lightroom-drop-sun-light.jpg"
+                Name = "นมนม",
+                price = 60,
+                ProfileImage="https://static.bigc.co.th/media/catalog/product/cache/8/image/500x/9df78eab33525d08d6e5fb8d27136e95/8/8/8850329183418_1_1.jpg"
             },
-             new Student{
+             new product{
                 Id = Guid.NewGuid().ToString(),
-                Name = "นายส้ม",
-                price = 5,
-                ProfileImage="https://photofleem.com/wp-content/uploads/2017/12/Feelm-Marry-App.jpg"
+                Name = "นมนมนม",
+                price = 20,
+                ProfileImage="https://d2t5tgzzxhb6v2.cloudfront.net/media//catalog/product/8/8/8851717030512.jpg"
             },
         };
         [HttpGet]
-        public List<Student> GetAllStudents()
+        public List<product> GetAllproduct()
         {
-            return students;
+            return product;
         }
         [HttpGet("{id}")]
-        public Student GetStudent(string id)
+        public product Getproduct(string id)
         {
-            return students.Find(it => it.Id == id);
+            return product.Find(it => it.Id == id);
         }
         [HttpPost]
-        public void CreateStudent([FromBody]Student newStudent)
+        public void Createproduct([FromBody]product newStudent)
         {
             newStudent.Id = Guid.NewGuid().ToString();
-            students.Add(newStudent);
+            product.Add(newStudent);
         }
-        [HttpPut]
-        public void UpdateStudent([FromBody]Student xxstudent)
-        {
-            var oldStudent = students.Find(it => it.Id == xxstudent.Id);
-            students.Remove(oldStudent);
-            students.Add(xxstudent);
-        }
-        [HttpDelete ("{id}")]
-        public void DeleteStudent(string id){
-           var student = students.Find(it => it.Id == id);
-           students.Remove(student);
-           
-        }
+      
     }
 }

@@ -1,6 +1,6 @@
 namespace myApi.Models
 {
-    public class Student
+    public class product
     {
         public string Id { get; set; }
         public string Name { get; set; }
