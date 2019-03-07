@@ -33,10 +33,10 @@ namespace myApi.Controllers
             },
         };
         [HttpGet]
-        public List<product> GetAllproduct()
+        public List<product> Getallproduct()
         {
             return product;
-        }
+        }   
         [HttpGet("{id}")]
         public product Getproduct(string id)
         {

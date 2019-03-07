@@ -20,4 +20,7 @@ get() {
     console.log(this.product);
   });
 }
+/*goinfoPage(id: string) {
+  this.navCtrl.push('InfoPage', { id: id });
+}*/
 }

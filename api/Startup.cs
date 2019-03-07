@@ -49,6 +49,10 @@ namespace api
             app.UseHttpsRedirection();
             
             app.UseSwagger();
+                 app.UseCors(
+                                builder => builder.AllowAnyOrigin()
+                                .AllowAnyMethod()
+                                .AllowAnyHeader());
 
     // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
     // specifying the Swagger JSON endpoint.
